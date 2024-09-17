@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_LBRC,  KC_RBRC,  KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_SLSH,  KC_EQL,
                                                       KC_LCTL,  KC_LALT,                                               KC_RGUI,  KC_RCTL,
                                                                 KC_LGUI,                                               KC_RGUI,
-                                            KC_SPC,   KC_DEL,   MO(3),                                                 MO(3),    KC_ENT,   KC_BSPC
+                                            KC_BSPC,  KC_DEL,   MO(3),                                                 MO(3),    KC_ENT,   KC_SPC
   ),
   
   [FNLAYER] = LAYOUT(
