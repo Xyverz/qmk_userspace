@@ -1,17 +1,14 @@
 #include QMK_KEYBOARD_H
 
-// Adding macros to make the keymaps below much easier to read.
-/*
- Visit https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#mod-tap
- to read why these macros below are side-aware (LALT, RCTL, etc).
-*/
-#define DVORAK 0 // Base Layer
-#define LOWER 1 // LOWER layer
-#define RAISE 2 // RAISE Layer
-#define ADJUST 3 // ADJUST layer
+// Layer Names Here.
+#define _DVORAK 0 // Base Layer
+#define _LOWER 1 // LOWER Layer
+#define _RAISE 2 // RAISE Layer
+#define _ADJUST 3 // ADJUST Layer
 
-#define CTLSCLN RCTL_T(KC_SCLN)
-#define LCTLZED LCTL_T(KC_Z)
+// Macros Here.
+#define CTLSCLN LCTL_T(KC_SCLN)
+#define RCTLZED LCTL_T(KC_Z)
 #define ALTQ LALT_T(KC_Q)
 #define ALTV RALT_T(KC_V)
 #define GUIJ LGUI_T(KC_J)
@@ -37,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                |      |    |      |
  *                                `------'    `------'
  */
-[DVORAK] = LAYOUT (
+[_DVORAK] = LAYOUT_split_3x5_3(
   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,       KC_F,    KC_G,    KC_C,    KC_R,    KC_L,
   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,       KC_D,    KC_H,    KC_T,    KC_N,    KC_S,
   CTLSCLN, ALTQ,    GUIJ,    KC_K,    KC_X,       KC_B,    KC_M,    GUIW,    ALTV,    RCTLZED,
@@ -59,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                |      |    |      |
  *                                `------'    `------'
  */
-[LOWER] = LAYOUT (
+[_LOWER] = LAYOUT_split_3x5_3(
   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
   KC_CAPS, _______, KC_UP,   _______, KC_HOME,    KC_PGUP, KC_PLUS, KC_LCBR, KC_RCBR, KC_UNDS,
   KC_TILD, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     KC_PGDN, KC_MUTE, KC_VOLD, KC_VOLU, KC_SLSH,
@@ -81,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                |      |    |      |
  *                                `------'    `------'
  */
-[RAISE] = LAYOUT (
+[_RAISE] = LAYOUT_split_3x5_3(
   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
   KC_CAPS, _______, KC_UP,   _______, KC_HOME,    KC_PGUP, KC_EQL,  KC_LBRC, KC_RBRC, KC_MINS,
   KC_GRV,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     KC_PGDN, KC_MPRV, KC_MPLY, KC_MNXT, KC_QUES,
@@ -103,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                |      |    |      |
  *                                `------'    `------'
  */
-[ADJUST] =  LAYOUT (
+[_ADJUST] =  LAYOUT_split_3x5_3(
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_UP,   KC_F9,   KC_F10,
   KC_F11,  QK_BOOT, _______, _______, _______,    _______, KC_PSCR, KC_SCRL, KC_PAUS, KC_F12,
   _______, _______, _______, _______, _______,    QK_BOOT, _______, _______, _______, _______,
